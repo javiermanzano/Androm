@@ -15,13 +15,12 @@ public class Tables {
 	/** Column's name */
 	List<ColumnDefinition> columns = Lists.newArrayList();
 	
-	public Tables createTable(Class clazz) {
+	public Tables createTable(Class<?> clazz) {
 		columns = ClassUtils.getColumnsDefinition(clazz);
+		return null;
 	}
 		
-	public String build() {
-		
-	}
+	
 
 	
 }

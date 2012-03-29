@@ -1,4 +1,4 @@
-package com.androm.sql.table;
+package com.androm.annotations;
 
 /**
  * All the columns  annotated with ToStringColumn must extend this interface

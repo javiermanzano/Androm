@@ -46,7 +46,11 @@ public class ColumnDefinition {
 		}));
 		
 	}
-
+	
+	public boolean hasModifiers() {
+		return modifiers.size() != 0;
+	}
+	
 	public ColumnType getType() {
 		return type;
 	}

@@ -20,6 +20,10 @@ public class TableMapper {
 	
 	static {
 		columnMapper = Maps.newHashMap();
+		columnMapper.put(int.class, ColumnType.INTEGER);
+		columnMapper.put(float.class, ColumnType.REAL);
+		columnMapper.put(double.class, ColumnType.REAL);
+		columnMapper.put(long.class, ColumnType.REAL);
 		columnMapper.put(String.class, ColumnType.TEXT);
 		columnMapper.put(Integer.class, ColumnType.INTEGER);
 		columnMapper.put(Double.class, ColumnType.REAL);
@@ -45,7 +49,7 @@ public class TableMapper {
 	public ColumnType toColumnType(Class clazz) {
 		ColumnType type = columnMapper.get(clazz);
 		if (type == null) {
-			throw new UnsupportedColumnTypeException();
+			throw new UnsupportedColumnTypeException("Could not map "  + clazz);
 		}
 		return type;
 	}

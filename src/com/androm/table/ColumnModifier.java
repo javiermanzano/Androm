@@ -4,31 +4,34 @@ public enum ColumnModifier {
 
 	NOT_NULL {
 		@Override
-		public String modifierName() {
-			return "not null";
+		public String getModifierName() {
+			return "NOT NULL";
 		}
 
 	},
 	PRIMARY_KEY {
 		@Override
-		public String modifierName() {
-			return "primary key";
+		public String getModifierName() {
+			return "PRIMARY KEY";
 		}
 
 	}, 
 	
+	// TODO DEFAULT hay que pasarle un valor por defecto
 	DEFAULT {
-
+		
 		@Override
-		public String modifierName() {
-			return "default";
+		public String getModifierName() {
+			return "";
 		}
 	}
 	;
 
 	private String name;
+	
+	private String value;
 
-	public abstract String modifierName();
+	public abstract String getModifierName();
 
 	public String getName() {
 		return name;
