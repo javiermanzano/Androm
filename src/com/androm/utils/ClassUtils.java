@@ -11,6 +11,8 @@ import com.google.common.collect.Lists;
 
 public class ClassUtils {
 	
+	private ClassUtils() { }
+	
 	public static List<ColumnDefinition> getColumnsDefinition(Class<?> clazz) {
 		ArrayList<Field> fields = Lists.newArrayList(clazz.getDeclaredFields());
 		return Lists.newArrayList(Collections2.transform(fields, new Function<Field, ColumnDefinition>() {

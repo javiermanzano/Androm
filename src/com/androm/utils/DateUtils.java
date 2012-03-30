@@ -9,6 +9,8 @@ import java.util.Date;
  */
 public class DateUtils {
 
+	private DateUtils() { }
+	
 	// TODO
 	public static Date parseISO8601(String date) {
 		return null;
