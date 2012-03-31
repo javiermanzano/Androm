@@ -29,11 +29,12 @@ public class PackageUtilsTest {
 	@Test
 	public void testGetClassesFromComplexPackage() {
 		List<Class<?>> classes = PackageUtils.getClasses("com.androm.mock.complex");
-		assertEquals(1, classes.size());
+		assertEquals(2, classes.size());
 		
 		List<String> classesNames = transformToClassesNames(classes);
 		
 		assertEquals("ProductInfo", classesNames.get(0));
+		assertEquals("Order", classesNames.get(1));
 	}
 	
 	private List<String> transformToClassesNames(List<Class<?>> classes) {
