@@ -9,9 +9,9 @@ import com.androm.mock.simple.Product;
 import com.androm.mock.simple.SuperSimpleProduct;
 
 
-public class ObjectToTableTest {
+public class AndromHelperTest {
 	
-	private ObjectToTable table = ObjectToTable.getInstance();
+	private PersistenceModule table = PersistenceModule.getInstance();
 	
 	@Test
 	public void testSuperSimpleTableCreation() {

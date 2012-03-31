@@ -3,9 +3,12 @@ package com.androm.sql;
 
 import java.util.List;
 
+import android.R.string;
+
 import com.androm.table.ColumnDefinition;
 import com.androm.table.ColumnModifier;
 import com.androm.utils.*;
+import com.google.common.collect.Lists;
 
 
 
@@ -16,22 +19,38 @@ import com.androm.utils.*;
  * @author javiermanzanomorilla
  *
  */
-public class ObjectToTable {
+public class PersistenceModule {
 	
-	private static ObjectToTable INSTANCE = null;
+	private static PersistenceModule INSTANCE = null;
 	
-	private ObjectToTable() { }
+	private PersistenceModule() { }
 	
-	public static ObjectToTable getInstance() {
+	public static PersistenceModule getInstance() {
 		if (INSTANCE == null) {
-			INSTANCE = new ObjectToTable();
+			INSTANCE = new PersistenceModule();
 		}
 		return INSTANCE;
 	}
-	
+
+
+	/**
+	 * Create the statme from a given class list
+	 * @param classes Classes list to be persisted
+	 * @return SQL statements to create the tables
+	 */
+	public List<String> createTableFrom(List<Class<?>> classes) {
+		List<String> statements = Lists.newArrayList();
+		for (Class<?> clazz : classes) {
+			statements.add(createTableFrom(clazz));
+		}
+		return statements;
+	}
 
 	/**
 	 * Create the statement from a given class
+	 * @param clazz Class to be persisted
+	 * @return SQL statements to create the table
+	 * 
 	 */
 	// TODO
 	public String createTableFrom(Class<?> clazz) {

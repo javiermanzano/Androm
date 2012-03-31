@@ -12,7 +12,26 @@ import com.google.common.collect.Lists;
 public class PackageUtils {
 
 	private PackageUtils() { }
+
+	/**
+	 * Get the classes from a packages list
+	 * @param packagesNames
+	 * @return
+	 */
+	public static List<Class<?>> getClasses(String... packagesNames) {
+		List<Class<?>> classes = Lists.newArrayList();
+		for (String packageName : packagesNames) {
+			classes.addAll(getClasses(packageName));
+		}
+		return classes;
+	}
 	
+
+	/**
+	 * Get the classes from a package
+	 * @param packageName Package to be explored
+	 * @return Classes in the package
+	 */
 	public static List<Class<?>> getClasses(String packageName) {
 		try {
 			ClassLoader classLoader = Thread.currentThread()
@@ -41,6 +60,12 @@ public class PackageUtils {
 		}
 	}
 
+	/**
+	 * Find classes recursively
+	 * @param directory
+	 * @param packageName
+	 * @return
+	 */
 	private static List<Class<?>> findClasses(File directory, String packageName) {
 		try {
 			List<Class<?>> classes = Lists.newArrayList();
