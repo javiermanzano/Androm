@@ -9,7 +9,7 @@ import com.androm.mock.simple.Product;
 import com.androm.mock.simple.SuperSimpleProduct;
 
 
-public class AndromHelperTest {
+public class PersistenceModuleTest {
 	
 	private PersistenceModule table = PersistenceModule.getInstance();
 	
