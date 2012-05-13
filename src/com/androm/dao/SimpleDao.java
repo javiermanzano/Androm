@@ -38,7 +38,7 @@ public class SimpleDao {
 	 * @param version Database version
 	 * @param classes Classes to persist
 	 */
-	public SimpleDao(Context context, String name, int version, List<Class<?>> classesToPersist) {
+	public SimpleDao(Context context, List<Class<?>> classesToPersist, String name, int version) {
 		andromHelper = new AndromOpenHelper(context, classesToPersist, name,  version);
 	}
 	

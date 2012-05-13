@@ -1,14 +1,14 @@
 package com.androm;
 
+import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+
 import com.androm.dao.SimpleDao;
 import com.androm.mock.simple.Contact;
 import com.androm.mock.simple.Product;
 import com.androm.mock.simple.SuperSimpleProduct;
 import com.google.common.collect.Lists;
-
-import android.app.Activity;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
 
 public class AndromExampleActivity extends Activity {
 	/** Called when the activity is first created. */
@@ -17,8 +17,8 @@ public class AndromExampleActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		SimpleDao andromHandler = new SimpleDao(
-				getApplicationContext(), "DATABASE", 1, Lists.newArrayList(
-						Product.class, Contact.class, SuperSimpleProduct.class));
+				getApplicationContext(),  Lists.newArrayList(
+						Product.class, Contact.class, SuperSimpleProduct.class), "DATABASE", 1);
 		SQLiteDatabase database = andromHandler.getDatabase();
 	}
 }
